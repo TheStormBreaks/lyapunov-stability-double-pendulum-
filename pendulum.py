@@ -17,6 +17,7 @@ m1 = 5
 m2 = 2
 
 #length of string for pendulum 1 and oendulum 2 (in meters).
+l1 = 2
 l2 = 1.4
 
 #gravitational acceleration constant (in m/s^2).
@@ -84,3 +85,10 @@ u2 = sol[:, 2]
 #omega_2
 u3 = sol[:, 3]
 
+#Conversion from polar coordinates to cartesian coordinates
+#first pendulum
+x1 = l1 * np.sin(u0)
+y1 = -l1 * np.cos(u0)
+#second pendulum
+x2 = x1 + l2 * np.sin(u2)
+y2 = y1 - l1 * np.cos(u2)
