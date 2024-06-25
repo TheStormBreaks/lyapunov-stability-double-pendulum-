@@ -115,6 +115,26 @@ py.legend()
 py.xlabel('distance (meters)')
 py.ylabel('time (seconds)')
 
+fig = plt.figure()
+ax = plt.axis(xlim = (-l1 - l1 - 0.5, l1 + l2 + 0.5), ylim = (-2.5, 1.5))
 
+#line for pendulum1's path
+line1, = ax.plot([], [], 'o-', colour = '#d2eeff', markersize = 12, markerfacecolor='#0077BE', 
+                 lw = 2, markevery = 10000, markeredgecolour = 'k')
+#line for pendulum2's path
+line2, = ax.plot([], [], 'o-', colour = '#ffebd8', markersize = 12, markerfacecolor='#f66338', 
+                 lw = 2, markevery = 10000, markeredgecolour = 'k')
 
+#line3 and line4 are used to create lines in the animation plot
+line3, = ax.plot([], [], color='k', linestyle='-', linewidth=2)
+line4, = ax.plot([], [], color='k', linestyle='-', linewidth=2)
 
+#This is a marker (specifically a circle marker 'o') used 
+#to denote a specific point or event in the animation. 
+line5, = ax.plot([], [], 'o', color='k', markersize=10)
+
+#used to display the current time in the animation plot. 
+time_template = 'Time = %.1f s'
+
+#used to dynamically update and display the formatted time 
+time_string = ax.text(0.05, 0.9, '', transform=ax.transAxes)
