@@ -67,4 +67,19 @@ def double_pendulum(u, t, m1, m2, l1, l2, g):
 
 sol = odeint(double_pendulum, u0, t, args=(m1, m2, l1, l2, g))
 
+# sol[:,0] = u1 = Θ_1
+# sol[:,1] = u2 = ω_1
+# sol[:,2] = u3 = Θ_2
+# sol[:,3] = u4 = ω_2
 
+#theta_1
+u0 = sol[:, 0]
+
+#omega_1
+u1 = sol[:, 1]
+
+#theta_2
+u2 = sol[:, 2]
+
+#omega_2
+u3 = sol[:, 3]
