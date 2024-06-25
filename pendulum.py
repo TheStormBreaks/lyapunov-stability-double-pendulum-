@@ -4,7 +4,7 @@ from scipy.integrate import odeint
 import time
 import math
 import numpy as np
-import pylab as np
+import pylab as py
 
 #we import matplotlib.pyplot as plt.
 from matplotlib import animation, rc
@@ -91,6 +91,30 @@ x1 = l1 * np.sin(u0)
 y1 = -l1 * np.cos(u0)
 #second pendulum
 x2 = x1 + l2 * np.sin(u2)
-
-
 y2 = y1 - l1 * np.cos(u2)
+
+
+#MATPLOTLIB WITH PYPLOT
+
+py.close('all')
+
+#dot diagram
+
+py.figure(1)
+py.plot(x1, x2, '.', colour = '#0077BE', label = 'mass 1')
+py.plot(x2, y2, '.', colour = '#f66338', label = 'mass 2')
+py.legend()
+py.xlabel('x (meters)')
+py.ylabel('y (meters)')
+
+#line graph 
+py.figure(2)
+py.plot(t,x2)
+py.plot(t,y2)
+py.legend()
+py.xlabel('distance (meters)')
+py.ylabel('time (seconds)')
+
+
+
+
