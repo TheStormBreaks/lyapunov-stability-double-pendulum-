@@ -180,3 +180,10 @@ def animate(i):
 
 animate = animation.FuncAnimation(fig, animate, init_func = init, frames = Nt, 
                                   interval = 1000 * (t[2] - t[1]) * 0.8, blit = True)
+
+
+#TO SAVE THE ANIMATION, EVERY RUN
+#anim.save('double_pendulum_animation.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
+#anim.save('double_pendulum_animation.gif', fps=1.0/(t[2]-t[1]), writer='imagemagick')
+
+plt.show()
