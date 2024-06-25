@@ -64,3 +64,7 @@ def double_pendulum(u, t, m1, m2, l1, l2, g):
              m2 * l1 * u[3] ** 2 * s * c) / (l2 * (m1 + m2 * s ** 2))
     
     return du
+
+sol = odeint(double_pendulum, u0, t, args=(m1, m2, l1, l2, g))
+
+
