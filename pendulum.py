@@ -138,3 +138,16 @@ time_template = 'Time = %.1f s'
 
 #used to dynamically update and display the formatted time 
 time_string = ax.text(0.05, 0.9, '', transform=ax.transAxes)
+
+#The init() function serves as the initialization function for the animation.
+def init():
+    line1.set_data([], [])
+    line2.set_data([], [])
+    line3.set_data([], [])
+    line4.set_data([], [])
+    line5.set_data([], [])
+    time_string.set_text('')
+
+    return line3, line4, line5, line1, line2, time_string
+
+# sequence wise called animation function
