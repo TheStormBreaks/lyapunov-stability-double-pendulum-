@@ -33,3 +33,9 @@ u0 = [-np.pi/2.2, 0, np.pi/1.8, 0]
 tfinal = 25.0
 Nt = 751
 t = np.linspace (0, tfinal, Nt)
+#the final time, in this case, sets the duration of the simulation
+#for the double pendulum system
+#It determines how long the simulation will run and for how many 
+#time steps it will calculate the motion of the pendulum system. 
+#In this programe, the final time is set to 25.0 seconds, meaning,
+#the simulation will run for 25 seconds only. Then, it resets. 
