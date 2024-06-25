@@ -11,6 +11,7 @@ from matplotlib import animation, rc
 from IPython.display import HTML
 from matplotlib import pyplot as plt
 
+
 #mass of bob for pendulum 1 and pendulum 2 (in kg).
 m1 = 5
 m2 = 2
@@ -39,3 +40,27 @@ t = np.linspace (0, tfinal, Nt)
 #time steps it will calculate the motion of the pendulum system. 
 #In this programe, the final time is set to 25.0 seconds, meaning,
 #the simulation will run for 25 seconds only. Then, it resets. 
+
+
+
+#Differential equations describing the system 
+def double_pendulum(u, t, m1, m2, l1, l2, g):
+    #dU = derivatives
+    # u = variables
+    # p = parameters
+    # t = time variable
+
+    du = np.zeros(4)
+
+    #intermediate variables
+    c = np.cos(u[0] - u[1])
+    s = np.sin(u[0] - u[2])
+
+    du[0] = u[1]
+    du[1] = (m2 * g * np.sin(u[2]) * c - m2 * s * (l1 * c * u[1] ** 2 + l2 * u[3] ** 2) - 
+             (m1 + m2) * g * np.sin(u[0])) / (l1 * (m1 + m2 * s ** 2))
+    du[2] = u[3]
+    du[3] = ((m1 + m2) * (l1 * u[1] ** 2 * s - g * np.sin(u[2]) + g * np.sin(u[0]) * c) + 
+             m2 * l1 * u[3] ** 2 * s * c) / (l2 * (m1 + m2 * s ** 2))
+    
+    return du
