@@ -151,3 +151,30 @@ def init():
     return line3, line4, line5, line1, line2, time_string
 
 # sequence wise called animation function
+def animate(i):
+    #size of the motion trail. 
+    # length of motion trail of weight 1
+    trail1 = 6             
+    # length of motion trail of weight 2
+    trail2 = 8      
+
+    # time step  
+    dt = t[2]-t[1]  
+
+    # marker + line of first weight
+    line1.set_data(x1[i : max(1, i - trail1) : -1], y1[i : max(1, i - trail1) : -1])
+    
+    # marker + line of second weight  
+    line2.set_data(x2[i : max(1, i - trail2) : -1], y2[i : max(1, i - trail2) : -1])
+
+    #line connecting weight 2 to weight 1
+    line3.set_data([x1[i], x2[i]], [y1[i], y2[i]])
+
+    # line connecting the origin to the weight
+    line4.set_data([x1[i], 0], [y1[i], 0])
+
+    line5.set_data([0, 0], [0, 0])
+    time_string.set_text(time_template % (i * dt))
+
+    return line1, line2, line3, line4, line5, time_string
+
