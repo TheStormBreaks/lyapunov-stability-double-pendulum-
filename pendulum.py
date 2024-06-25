@@ -178,3 +178,5 @@ def animate(i):
 
     return line1, line2, line3, line4, line5, time_string
 
+animate = animation.FuncAnimation(fig, animate, init_func = init, frames = Nt, 
+                                  interval = 1000 * (t[2] - t[1]) * 0.8, blit = True)
