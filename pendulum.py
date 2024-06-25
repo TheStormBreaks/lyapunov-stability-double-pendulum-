@@ -101,8 +101,8 @@ py.close('all')
 #dot diagram
 
 py.figure(1)
-py.plot(x1, x2, '.', colour = '#0077BE', label = 'mass 1')
-py.plot(x2, y2, '.', colour = '#f66338', label = 'mass 2')
+py.plot(x1, x2, '.', color = '#0077BE', label = 'mass 1')
+py.plot(x2, y2, '.', color = '#f66338', label = 'mass 2')
 py.legend()
 py.xlabel('x (meters)')
 py.ylabel('y (meters)')
@@ -116,14 +116,14 @@ py.xlabel('distance (meters)')
 py.ylabel('time (seconds)')
 
 fig = plt.figure()
-ax = plt.axis(xlim = (-l1 - l1 - 0.5, l1 + l2 + 0.5), ylim = (-2.5, 1.5))
+ax = plt.axes(xlim = (-l1 - l1 - 0.5, l1 + l2 + 0.5), ylim = (-2.5, 1.5))
 
 #line for pendulum1's path
-line1, = ax.plot([], [], 'o-', colour = '#d2eeff', markersize = 12, markerfacecolor='#0077BE', 
-                 lw = 2, markevery = 10000, markeredgecolour = 'k')
+line1, = ax.plot([], [], 'o-', color = '#d2eeff', markersize = 12, markerfacecolor='#0077BE', 
+                 lw = 2, markevery = 10000, markeredgecolor = 'k')
 #line for pendulum2's path
-line2, = ax.plot([], [], 'o-', colour = '#ffebd8', markersize = 12, markerfacecolor='#f66338', 
-                 lw = 2, markevery = 10000, markeredgecolour = 'k')
+line2, = ax.plot([], [], 'o-', color = '#ffebd8', markersize = 12, markerfacecolor='#f66338', 
+                 lw = 2, markevery = 10000, markeredgecolor = 'k')
 
 #line3 and line4 are used to create lines in the animation plot
 line3, = ax.plot([], [], color='k', linestyle='-', linewidth=2)
@@ -178,7 +178,7 @@ def animate(i):
 
     return line1, line2, line3, line4, line5, time_string
 
-animate = animation.FuncAnimation(fig, animate, init_func = init, frames = Nt, 
+anim = animation.FuncAnimation(fig, animate, init_func = init, frames = Nt, 
                                   interval = 1000 * (t[2] - t[1]) * 0.8, blit = True)
 
 
