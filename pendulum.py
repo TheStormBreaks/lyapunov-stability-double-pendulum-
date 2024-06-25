@@ -91,4 +91,6 @@ x1 = l1 * np.sin(u0)
 y1 = -l1 * np.cos(u0)
 #second pendulum
 x2 = x1 + l2 * np.sin(u2)
+
+
 y2 = y1 - l1 * np.cos(u2)
